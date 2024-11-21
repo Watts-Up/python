@@ -16,7 +16,7 @@ Com funcionalidades como **análise de trajeto** e **projeção temporal**, a pl
 
 1. Clone o repositório para sua máquina local:
    ```bash
-   git clone https://github.com/WattsUp/python.git
+   git clone https://github.com/GS-WattsUp/python.git
    cd python
    ```
 
