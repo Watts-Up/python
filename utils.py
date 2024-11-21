@@ -3,10 +3,12 @@ from time import sleep
 from constants import *
 from text import invalid_input as t_invalid_input
 
+
 # Exibe conteúdo após um atraso definido pela constante LATENCY
 def display_content(content):
     sleep(LATENCY)
     print(content)
+
 
 # Solicita entrada do usuário e valida com base em um validador customizado
 def request_input(prompt, validator, feedback_message=None, invalid_input=t_invalid_input):
@@ -24,6 +26,7 @@ def request_input(prompt, validator, feedback_message=None, invalid_input=t_inva
 
     return user_input  # Retorna a entrada válida do usuário
 
+
 # Verifica se um valor pode ser convertido para float
 def is_float(value):
     try:
@@ -31,6 +34,7 @@ def is_float(value):
         return True
     except:
         return False  # Retorna False se não for possível converter
+
 
 # Valida se todas as linhas de uma tabela têm o mesmo número de colunas
 def valid_table(values):
@@ -52,6 +56,7 @@ def valid_column_formats(values, columns_formats):
     if columns_formats not in ["LEFT_ALL", "CENTER_ALL", "RIGHT_ALL"]:
         raise Exception("Invalid Columns Widths String")
 
+
 # Calcula a largura máxima de cada coluna da tabela
 def get_column_widths(values):
     rows, cols = len(values), len(values[0])
@@ -67,6 +72,7 @@ def get_column_widths(values):
 
     return column_widths
 
+
 # Define o alinhamento de cada coluna com base no formato especificado
 def get_column_formats(values, column_formats):
     if isinstance(column_formats, list): 
@@ -79,12 +85,14 @@ def get_column_formats(values, column_formats):
         case "CENTER_ALL": return ["CENTER" for _ in range(cols)]
         case "RIGHT_ALL": return ["RIGHT" for _ in range(cols)]
 
+
 # Formata o conteúdo de uma célula da tabela com alinhamento específico
 def get_cell(value, width, format="LEFT"):
     match format:
         case "LEFT": return f" {value.ljust(width)} |"
         case "CENTER": return f" {value.center(width)} |"
         case "RIGHT": return f" {value.rjust(width)} |"
+
 
 # Cria uma linha divisória da tabela com base nas larguras das colunas
 def get_divider_row(widths):
@@ -95,6 +103,7 @@ def get_divider_row(widths):
         
     return divider_row + "\n"
 
+
 # Cria uma linha da tabela formatada
 def get_table_row(values, widths, column_formats):
     table_row = "|"
@@ -103,6 +112,7 @@ def get_table_row(values, widths, column_formats):
         table_row += get_cell(value, widths[col], column_formats[col])  # Adiciona célula formatada
 
     return table_row + "\n"
+
 
 # Gera a tabela completa com divisórias e linhas formatadas
 def get_table(values, column_formats):

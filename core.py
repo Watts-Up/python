@@ -2,6 +2,7 @@ import text as t
 from utils import *
 from constants import *
 
+
 # Calcula tabela de análise de trajeto
 def calculate_path_analysis(distance, combustion_car, electric_car):
     # Calcula o consumo e custo do combustível do carro a combustão
@@ -41,6 +42,7 @@ def calculate_path_analysis(distance, combustion_car, electric_car):
 
     table = get_table(values, "LEFT_ALL")
     return table
+
 
 # Gerencia o fluxo de entrada e exibição para a análise de trajeto
 def path_analysis():
@@ -118,6 +120,7 @@ def path_analysis():
     display_content(t.path_analysis_distance_result.format(distance))
     display_content(path_analysis_result_table)
 
+
 # Calcula tabela de projeção temporal
 def calculate_temporal_projection(interval_type, distance_per_interval, interval_amount, combustion_car, electric_car):
     values = [["Tempo", "Distância", "Combustível / Energia", "Custo Total (R$)", "Emissão de CO₂ (kg)", "Diferença de Custos", "Diferença de CO₂"]]
@@ -154,6 +157,7 @@ def calculate_temporal_projection(interval_type, distance_per_interval, interval
             
     table = get_table(values, "LEFT_ALL")
     return table
+
 
 # Gerencia o fluxo de entrada e exibição para a projeção temporal
 def temporal_projection():
@@ -238,6 +242,7 @@ def temporal_projection():
 
     display_content(t.temporal_projection_distance_per_interval_result.format(distance_per_interval))
     display_content(temporal_projection_result_table)
+
 
 # Exibe informações adicionais sobre o programa
 def find_out_more():
